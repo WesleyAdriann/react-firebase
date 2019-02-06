@@ -1,25 +1,41 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
+import 'bulma/css/bulma.css'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
+      <div>
+        <section className="hero is-fullheight">
+
+          <hero className="hero-body">
+
+            <div className="container">
+              <div className="columns is-centered">       
+                <div className="column is-half box" >
+
+                  <div className="field">
+                    <label className="label">Login</label>
+                    <div className="control">
+                      <input className="input" type="text"/>
+                    </div>
+                    <br/>
+                    <label className="label">Senha</label>
+                    <div className="control">
+                      <input className="input" type="password"/>
+                    </div>
+                    <br/>
+                    
+                    <input className="button" type="submit" value="Entrar"/>
+                  </div>
+
+                </div>
+              </div>
+            </div>
+            
+          </hero>
+
+        </section>
       </div>
     );
   }
