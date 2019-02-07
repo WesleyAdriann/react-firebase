@@ -1,41 +1,21 @@
 import React, { Component } from 'react';
 import './App.css';
-import 'bulma/css/bulma.css'
+import 'bulma/css/bulma.css';
+import Routers from './Routers'
+
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      logada: false
+    };
+  }
+
   render() {
     return (
       <div>
-        <section className="hero is-fullheight">
-
-          <hero className="hero-body">
-
-            <div className="container">
-              <div className="columns is-centered">       
-                <div className="column is-half box" >
-
-                  <div className="field">
-                    <label className="label">Login</label>
-                    <div className="control">
-                      <input className="input" type="text"/>
-                    </div>
-                    <br/>
-                    <label className="label">Senha</label>
-                    <div className="control">
-                      <input className="input" type="password"/>
-                    </div>
-                    <br/>
-                    
-                    <input className="button" type="submit" value="Entrar"/>
-                  </div>
-
-                </div>
-              </div>
-            </div>
-            
-          </hero>
-
-        </section>
+        <Routers/>
       </div>
     );
   }
