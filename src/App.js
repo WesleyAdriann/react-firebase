@@ -1,21 +1,35 @@
 import React, { Component } from 'react';
-import './App.css';
 import 'bulma/css/bulma.css';
-import Routers from './Routers'
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
+import AppLogado from './AppLogado';
+
+
 
 
 class App extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      logada: false
-    };
+      logado: false,
+      user: "",
+      admin: false
+    }
+  }
+
+  checkLogin() {
+    if (this.state.logado === true) {
+      return true;
+    } else {return false}
   }
 
   render() {
     return (
       <div>
-        <Routers/>
+        <BrowserRouter>
+                <Switch>
+                    <Route exact path="/" component={AppLogado}/>
+                </Switch>
+            </BrowserRouter>
       </div>
     );
   }
