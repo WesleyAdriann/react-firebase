@@ -1,6 +1,6 @@
 # Banco de dados + JS
 
-Sistema para inclusão, remoção e visualização dos usuários no banco de dados, utilizando Js e React.
+Sistema para inclusão, remoção e visualização dos usuários no banco de dados, utilizando firebase.
 
 Como framework front-end foi utilizado o React, para gerar a versão final utiliza-se o comando
 
