@@ -10,19 +10,10 @@ import Login from './components/Login';
 class App extends Component {
   constructor(props) {
     super(props);
-    this.state = {
-      logado: true,
-      user: "",
-      admin: false,
-    };
-    this.checkLogin = this.checkLogin.bind(this);
+     
   }
 
-  checkLogin = () => {
-    if (this.state.logado === true) {
-      return true;
-    } else {return false}
-  }
+
 
  
   
@@ -49,8 +40,8 @@ class App extends Component {
 
          
           
-          <Login/>
-          
+          {/* <Login/> */}
+          <AppLogado/>
           
         </BrowserRouter>
           

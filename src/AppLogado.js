@@ -6,7 +6,16 @@ import Inserir from './components/Inserir';
 import Excluir from './components/Excluir';
 
 class AppLogado extends Component {
-
+    constructor(props) {
+        super(props);
+        this.state = {
+          data: [   
+            {userId: 1, userName: 'rafael',  userEmail: 'rafael@gmail.com'},
+            {userId: 2, userName: 'natanael', userEmail: 'natanael@live.com'}
+          ],
+        };
+       
+      }
     
     
     render (){
@@ -22,9 +31,9 @@ class AppLogado extends Component {
 
 
                             
-                            <Route path="/usuarios" component={Usuarios}/> 
-                            <Route path="/inserir" component={Inserir} />  
-                            <Route path="/excluir" component={Excluir}/>
+                            <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
+                            <Route path="/inserir" component={() => <Inserir/>}/>  
+                            <Route path="/excluir" component={() => <Excluir/>}/>
                             
 
                         </div>

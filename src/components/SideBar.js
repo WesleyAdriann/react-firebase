@@ -20,7 +20,7 @@ class SideBar extends Component {
                                 <br/>
                                        
                             </ul>
-                            <ul className="menu-list"><li><Link to="/login">Logout</Link></li></ul>
+                            {/* <ul className="menu-list"><li><Link to="/login">Logout</Link></li></ul> */}
                         </aside>
 
                        
