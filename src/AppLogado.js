@@ -21,13 +21,14 @@ class AppLogado extends Component {
     render (){
         return(
             <div>
-                <section className="section" style={{paddingBottom: '0'}}>
-                    <div className="columns">
+                <section className="section" style={{paddingTop: '24px'}}>
+                    
+                    <div className="columns box">
                         <div className="column is-2">
-                            <SideBar force={this.reRender}/>
+                            <SideBar/>
                         </div>
                         
-                        <div className="column">
+                        <div className="column is-5">
 
 
                             
@@ -39,7 +40,7 @@ class AppLogado extends Component {
                         </div>
                         
                     </div>
-
+                    
                 </section>
             </div>
         );

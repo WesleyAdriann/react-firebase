@@ -6,7 +6,6 @@ import Login from './components/Login';
 
 
 
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -20,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div>
+      <div style={{background: '#424242'}}>
         <BrowserRouter >
 {/* 
           <Switch>

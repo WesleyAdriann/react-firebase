@@ -10,7 +10,7 @@ class Usuarios extends Component {
         return (
             <div>
                 
-                <table className="table">
+                <table className="table if-fullwidth">
                     <thead>
                         <tr>
                             <th>ID</th>

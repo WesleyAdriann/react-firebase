@@ -5,7 +5,7 @@ import {  Link, Switch } from 'react-router-dom';
 class SideBar extends Component {
     render () {
         return (
-            <div className="hero is-fullheight if-info" style={{borderRight: '1px hsl(217, 71%, 53%) solid'}}>
+            <div className=" is-fullheight" style={{borderRight: '1px hsl(217, 71%, 53%) solid'}}>
                     
                         <aside classNam="menu is-info">
                             <p class="menu-label">Geral</p>
