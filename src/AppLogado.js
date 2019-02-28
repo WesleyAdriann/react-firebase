@@ -4,7 +4,6 @@ import { Switch, Route } from 'react-router-dom';
 import Usuarios from './components/Usuarios';
 import Inserir from './components/Inserir';
 import Excluir from './components/Excluir';
-import './css/style.css';
 
 class AppLogado extends Component {
     constructor() {
@@ -24,8 +23,7 @@ class AppLogado extends Component {
     }
 
     closeSide () {
-        // document.getElementById("sideBar").style.display = "none";
-        console.log("clicke")
+        document.getElementById("sideBar").style.display = "none";
     }
 
 
@@ -55,15 +53,17 @@ class AppLogado extends Component {
                     
                 </section> */}
 
-                <div className="sideBar" style={{display: 'none'}} id="sideBar">
-                    <SideBar/>
+                <div style={{display: 'none'}} id="sideBar">
+                    <SideBar closeSide={this.closeSide}/>
                 </div>
 
                 <div className="section" style={{paddingTop: '24px'}}>
                             <span onClick={this.openSide}>&#9776;</span>
                             <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
-                            <Route path="/inserir" component={() => <Inserir closeSide={this.closeSide}/>}/>  
-                            <Route path="/excluir" component={() => <Excluir/>}/>
+                            <Route path="/inserir" component={() => <Inserir/>}/>  
+                            <Route path="/excluir" component={() => <Excluir data={this.state.data}/>}/>
+
+                            
                 </div>
 
             </div>

@@ -1,5 +1,6 @@
 import React , { Component } from 'react';
 import {  Link, Switch } from 'react-router-dom';
+import '../css/style.css';
 
 
 class SideBar extends Component {
@@ -16,7 +17,8 @@ class SideBar extends Component {
     render () {
         return (
             <div>
-                        <span onClick={this.props.closeSide}>&times;</span>
+                    <div className="sideBar">
+                        <div align="right" style={{fontSize: '20px', color: 'red'}}><span onClick={this.props.closeSide}>×</span></div>
                         <aside classNam="menu is-info">
                         
                             <p className="menu-label">Geral</p>
@@ -34,8 +36,10 @@ class SideBar extends Component {
                             {/* <ul className="menu-list"><li><Link to="/login">Logout</Link></li></ul> */}
                         </aside>
 
-                       
-                
+                    </div>
+                    <div className="main" onClick={this.props.closeSide}/>
+
+                    
                     
             
 
