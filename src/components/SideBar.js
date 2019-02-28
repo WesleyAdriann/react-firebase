@@ -3,12 +3,23 @@ import {  Link, Switch } from 'react-router-dom';
 
 
 class SideBar extends Component {
+    constructor(props) {
+        super(props);
+
+    }
+
+    handleSide() {
+       console.log("kflsadhfjklsd");
+       this.props.closeSide();
+    }
+
     render () {
         return (
-            <div className=" is-fullheight" style={{borderRight: '1px hsl(217, 71%, 53%) solid'}}>
-                    
+            <div>
+                        <span onClick={this.props.closeSide}>&times;</span>
                         <aside classNam="menu is-info">
-                            <p class="menu-label">Geral</p>
+                        
+                            <p className="menu-label">Geral</p>
                             <ul className="menu-list">
                                 <li><Link to="/usuarios">Usuarios</Link></li>
                             </ul>

@@ -19,7 +19,7 @@ class App extends Component {
 
   render() {
     return (
-      <div style={{background: '#424242'}}>
+      <div>
         <BrowserRouter >
 {/* 
           <Switch>

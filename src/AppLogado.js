@@ -4,26 +4,38 @@ import { Switch, Route } from 'react-router-dom';
 import Usuarios from './components/Usuarios';
 import Inserir from './components/Inserir';
 import Excluir from './components/Excluir';
+import './css/style.css';
 
 class AppLogado extends Component {
-    constructor(props) {
-        super(props);
+    constructor() {
+        super();
         this.state = {
           data: [   
             {userId: 1, userName: 'rafael',  userEmail: 'rafael@gmail.com'},
             {userId: 2, userName: 'natanael', userEmail: 'natanael@live.com'}
           ],
         };
-       
+        this.openSide = this.openSide.bind(this);
+        this.closeSide = this.closeSide.bind(this);
       }
     
+    openSide () {
+        document.getElementById("sideBar").style.display = "block";
+    }
+
+    closeSide () {
+        // document.getElementById("sideBar").style.display = "none";
+        console.log("clicke")
+    }
+
+
     
     render (){
         return(
             <div>
-                <section className="section" style={{paddingTop: '24px'}}>
+                {/* <section className="section" style={{paddingTop: '24px'}}>
                     
-                    <div className="columns box">
+                    <div className="columns">
                         <div className="column is-2">
                             <SideBar/>
                         </div>
@@ -41,7 +53,19 @@ class AppLogado extends Component {
                         
                     </div>
                     
-                </section>
+                </section> */}
+
+                <div className="sideBar" style={{display: 'none'}} id="sideBar">
+                    <SideBar/>
+                </div>
+
+                <div className="section" style={{paddingTop: '24px'}}>
+                            <span onClick={this.openSide}>&#9776;</span>
+                            <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
+                            <Route path="/inserir" component={() => <Inserir closeSide={this.closeSide}/>}/>  
+                            <Route path="/excluir" component={() => <Excluir/>}/>
+                </div>
+
             </div>
         );
     }
