@@ -3,19 +3,66 @@ import user from '../icons/_ionicons_svg_md-person.svg'
 import mail from '../icons/_ionicons_svg_md-at.svg'
 
 class Inserir extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            inputName: '',
+            inputEmail: '',
+            erro: false,
+            log: ''
+        }
+        this.addUser = this.addUser.bind(this);
+    }
 
     addUser() {
-
+        this.setState ({log: ''});
+        if (this.state.inputName.length < 3) {
+            this.setState({
+                log: <div className="message is-danger"><div class="message-body">O nome é muito curto</div></div>
+            })
+        } else if (!this.state.inputEmail.includes("@")) {
+            this.setState({
+                log: <div className="message is-danger"><div class="message-body">Email inválido</div></div>
+            })
+        }
+        // this.props.addUser(this.state.inputName, this.state.inputEmail);
     }
+
+    handleName (inputName) {
+        this.setState({
+            inputName
+        })  
+    }
+
+    handleEmail(inputEmail) {
+        this.setState({
+            inputEmail
+        })
+    }
+    
+
+
 
     render () {
     
+
         return (
             <div>
+                <div style={{maxWidth: '30%', marginTop: '10px'}}>
+                {this.state.log}
+                </div>
                 <div className="field">
                     <label className="label">Nome</label>
                     <div className="control has-icons-left">
-                        <input className="input" type="text" placeholder="Nome do usuário"/>
+
+                        <input
+                            id="name"
+                            className="input" 
+                            type="text" 
+                            placeholder="Nome do usuário" 
+                            onChange={event => this.handleName(event.target.value)}
+                        />
+
                         <span className="icon is-left">
                             <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)'}}/>
                         </span>
@@ -24,7 +71,15 @@ class Inserir extends Component {
                 <div className="field">
                     <label className="label">Email</label>
                     <div className="control has-icons-left">
-                        <input className="input" type="text" placeholder="email@exemplo.com"/>
+
+                        <input
+                            id="email"
+                            className="input"
+                            type="text"
+                            placeholder="email@exemplo.com"     
+                            onChange={event => this.handleEmail(event.target.value)}                       
+                        />
+
                         <span className="icon is-left">
                             <img src={mail} className="image is-24x24" style={{filter: 'opacity(25%)'}}/>
                         </span>
@@ -33,7 +88,7 @@ class Inserir extends Component {
 
                 <div className="field" style={{float: 'right'}}>
                     <div className="control">
-                        <button className="button is-info">Cadastrar</button>
+                        <button className="button is-info" onClick={this.addUser}>Cadastrar</button>
                     </div>
                 </div>
             </div>

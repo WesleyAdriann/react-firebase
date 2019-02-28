@@ -5,19 +5,49 @@ import Usuarios from './components/Usuarios';
 import Inserir from './components/Inserir';
 import Excluir from './components/Excluir';
 
+import firebase from 'firebase';
+import { DB_config } from './config/config';
+import 'firebase/database';
+
 class AppLogado extends Component {
     constructor() {
         super();
         this.state = {
           data: [   
-            {userId: 1, userName: 'rafael',  userEmail: 'rafael@gmail.com'},
-            {userId: 2, userName: 'natanael', userEmail: 'natanael@live.com'}
+            // {userId: 1, userName: 'rafael',  userEmail: 'rafael@gmail.com'},
+            // {userId: 2, userName: 'natanael', userEmail: 'natanael@live.com'}
           ],
         };
+        
+        this.app = firebase.initializeApp(DB_config);
+        this.db = this.app.database().ref().child('data')
+
         this.openSide = this.openSide.bind(this);
         this.closeSide = this.closeSide.bind(this);
       }
     
+    componentDidMount() {
+        const { data } = this.state;
+        this.db.on('child_added', snap => {
+            data.push({
+                userId: snap.key,
+                userName: snap.val().userName,
+                userEmail: snap.val().userEmail
+            })
+            this.setState({data});
+        });
+
+    }
+
+
+    addUser (name, email) {
+        // this.db.push().set({userName: name, userEmail: email});
+        console.log(name, email);
+    }
+
+
+
+
     openSide () {
         document.getElementById("sideBar").style.display = "block";
     }
@@ -60,7 +90,7 @@ class AppLogado extends Component {
                 <div className="section" style={{paddingTop: '24px'}}>
                             <span onClick={this.openSide}>&#9776;</span>
                             <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
-                            <Route path="/inserir" component={() => <Inserir/>}/>  
+                            <Route path="/inserir" component={() => <Inserir addUser={this.addUser}/>}/>  
                             <Route path="/excluir" component={() => <Excluir data={this.state.data}/>}/>
 
                             
