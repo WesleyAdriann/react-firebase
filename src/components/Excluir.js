@@ -5,6 +5,15 @@ class Excluir extends Component {
         super(props);
         this.data = props.data;
     }
+
+    handleRemove(id) {
+        const response = window.confirm('Tem certeza que deseja remover?');
+        if (response) {
+            this.props.removeUser(id);
+        }
+        
+    }
+
     render () {
         return(
             <div>
@@ -26,7 +35,7 @@ class Excluir extends Component {
                                     <th>{info.userId}</th>
                                     <td>{info.userName}</td>
                                     <td>{info.userEmail}</td>
-                                    <td style={{fontSize: '17px', color: 'red'}} key={info.userId}>×</td>
+                                    <td style={{fontSize: '17px', color: 'red'}} key={info.userId}><span onClick={() => this.handleRemove(info.userId)}>×</span></td>
                                 </tr> 
                             );
                         })}

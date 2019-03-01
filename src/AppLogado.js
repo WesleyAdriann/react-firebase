@@ -29,6 +29,7 @@ class AppLogado extends Component {
         this.closeSide = this.closeSide.bind(this);
 
         this.addUser = this.addUser.bind(this);
+        this.removeUser = this.removeUser.bind(this);
       }
     
     componentDidMount() {
@@ -44,12 +45,14 @@ class AppLogado extends Component {
 
         this.db.on('child_removed', snap => {
             for (let i = 0; i < data.length; i++) {
-                if(data[i].userId = snap.key) {
+                if(data[i].userId == snap.key) {
                     data.splice(i, 1);
                 }
             }
             this.setState({data});
         })
+
+        
 
     }
 
@@ -59,6 +62,10 @@ class AppLogado extends Component {
         // console.log(name, email);
     }
 
+    removeUser(id) {
+        console.log('remove ', id);
+        this.db.child(id).remove();
+    }
 
 
 
@@ -107,7 +114,7 @@ class AppLogado extends Component {
                             <Route path="/" exact component={BemVindo} />
                             <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
                             <Route path="/inserir" component={() => <Inserir addUser={this.addUser}/>}/>  
-                            <Route path="/excluir" component={() => <Excluir data={this.state.data}/>}/>
+                            <Route path="/excluir" component={() => <Excluir data={this.state.data} removeUser={this.removeUser}/>}/>
 
                             
                 </div>
