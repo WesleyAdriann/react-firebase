@@ -58,8 +58,18 @@ class AppLogado extends Component {
 
 
     addUser (name, email) {
-        this.db.push().set({userName: name, userEmail: email});
-        // console.log(name, email);
+        
+        this.db.push().set({
+            userName: name,
+            userEmail: email
+        }, function(error) {
+            if (error) {
+                console.log(error);
+            } else {
+              console.log(200);
+            }
+          });
+        
     }
 
     removeUser(id) {

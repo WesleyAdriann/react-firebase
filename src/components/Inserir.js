@@ -34,6 +34,7 @@ class Inserir extends Component {
             //     log: <div className="message is-success"><div class="message-body">Inserido</div></div>
             // })
             this.props.addUser(this.state.inputName, this.state.inputEmail);
+            
         }
         
     }
