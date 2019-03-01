@@ -1,9 +1,12 @@
 import React, { Component } from 'react';
-import SideBar from './components/SideBar';
 import { Switch, Route } from 'react-router-dom';
+
+
+import SideBar from './components/SideBar';
 import Usuarios from './components/Usuarios';
 import Inserir from './components/Inserir';
 import Excluir from './components/Excluir';
+import { BemVindo } from './components/BemVindo';
 
 import firebase from 'firebase';
 import { DB_config } from './config/config';
@@ -24,6 +27,8 @@ class AppLogado extends Component {
 
         this.openSide = this.openSide.bind(this);
         this.closeSide = this.closeSide.bind(this);
+
+        this.addUser = this.addUser.bind(this);
       }
     
     componentDidMount() {
@@ -37,12 +42,21 @@ class AppLogado extends Component {
             this.setState({data});
         });
 
+        this.db.on('child_removed', snap => {
+            for (let i = 0; i < data.length; i++) {
+                if(data[i].userId = snap.key) {
+                    data.splice(i, 1);
+                }
+            }
+            this.setState({data});
+        })
+
     }
 
 
     addUser (name, email) {
-        // this.db.push().set({userName: name, userEmail: email});
-        console.log(name, email);
+        this.db.push().set({userName: name, userEmail: email});
+        // console.log(name, email);
     }
 
 
@@ -89,6 +103,8 @@ class AppLogado extends Component {
 
                 <div className="section" style={{paddingTop: '24px'}}>
                             <span onClick={this.openSide}>&#9776;</span>
+                            
+                            <Route path="/" exact component={BemVindo} />
                             <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
                             <Route path="/inserir" component={() => <Inserir addUser={this.addUser}/>}/>  
                             <Route path="/excluir" component={() => <Excluir data={this.state.data}/>}/>

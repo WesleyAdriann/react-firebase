@@ -16,16 +16,26 @@ class Inserir extends Component {
 
     addUser() {
         this.setState ({log: ''});
+
+        let re = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
+
         if (this.state.inputName.length < 3) {
             this.setState({
                 log: <div className="message is-danger"><div class="message-body">O nome é muito curto</div></div>
             })
-        } else if (!this.state.inputEmail.includes("@")) {
+        
+        } else if ( !re.test(String(this.state.inputEmail).toLowerCase()) ) {
             this.setState({
                 log: <div className="message is-danger"><div class="message-body">Email inválido</div></div>
             })
+        } else {
+
+            // this.setState({
+            //     log: <div className="message is-success"><div class="message-body">Inserido</div></div>
+            // })
+            this.props.addUser(this.state.inputName, this.state.inputEmail);
         }
-        // this.props.addUser(this.state.inputName, this.state.inputEmail);
+        
     }
 
     handleName (inputName) {
@@ -64,7 +74,7 @@ class Inserir extends Component {
                         />
 
                         <span className="icon is-left">
-                            <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)'}}/>
+                            <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)', zIndex: 0}}/>
                         </span>
                     </div>
                 </div>
