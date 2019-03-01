@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import user from '../icons/_ionicons_svg_md-person.svg'
 import mail from '../icons/_ionicons_svg_md-at.svg'
 
+
 class Inserir extends Component {
     constructor(props) {
         super(props);
@@ -30,9 +31,6 @@ class Inserir extends Component {
             })
         } else {
 
-            // this.setState({
-            //     log: <div className="message is-success"><div class="message-body">Inserido</div></div>
-            // })
             this.props.addUser(this.state.inputName, this.state.inputEmail);
             
         }
@@ -58,48 +56,51 @@ class Inserir extends Component {
     
 
         return (
-            <div>
-                <div style={{maxWidth: '30%', marginTop: '10px'}}>
-                {this.state.log}
-                </div>
-                <div className="field">
-                    <label className="label">Nome</label>
-                    <div className="control has-icons-left">
-
-                        <input
-                            id="name"
-                            className="input" 
-                            type="text" 
-                            placeholder="Nome do usuário" 
-                            onChange={event => this.handleName(event.target.value)}
-                        />
-
-                        <span className="icon is-left">
-                            <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)', zIndex: 0}}/>
-                        </span>
+            <div className="columns">
+                <div className="column">
+                    <div style={{maxWidth: '30%', marginTop: '10px'}}>
+                    {this.state.log}
                     </div>
-                </div>
-                <div className="field">
-                    <label className="label">Email</label>
-                    <div className="control has-icons-left">
+                    <div className="field">
+                        <label className="label">Nome</label>
+                        <div className="control has-icons-left">
 
-                        <input
-                            id="email"
-                            className="input"
-                            type="text"
-                            placeholder="email@exemplo.com"     
-                            onChange={event => this.handleEmail(event.target.value)}                       
-                        />
+                            <input
+                                id="name"
+                                className="input" 
+                                type="text" 
+                                placeholder="Nome do usuário" 
+                                onChange={event => this.handleName(event.target.value)}
+                            />
 
-                        <span className="icon is-left">
-                            <img src={mail} className="image is-24x24" style={{filter: 'opacity(25%)'}}/>
-                        </span>
+                            <span className="icon is-left">
+                                <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)', zIndex: 0}}/>
+                            </span>
+                        </div>
                     </div>
-                </div>
+                    <div className="field">
+                        <label className="label">Email</label>
+                        <div className="control has-icons-left">
 
-                <div className="field" style={{float: 'right'}}>
-                    <div className="control">
-                        <button className="button is-info" onClick={this.addUser}>Cadastrar</button>
+                            <input
+                                id="email"
+                                className="input"
+                                type="text"
+                                placeholder="email@exemplo.com"     
+                                onChange={event => this.handleEmail(event.target.value)}                       
+                            />
+
+                            <span className="icon is-left">
+                                <img src={mail} className="image is-24x24" style={{filter: 'opacity(25%)', position:'absolute', zIndex: 1}}/>
+                                
+                            </span>
+                        </div>
+                    </div>
+
+                    <div className="field" style={{float: 'right'}}>
+                        <div className="control">
+                            <button className="button is-info" onClick={this.addUser}>Cadastrar</button>
+                        </div>
                     </div>
                 </div>
             </div>

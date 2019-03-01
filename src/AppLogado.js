@@ -12,6 +12,8 @@ import firebase from 'firebase';
 import { DB_config } from './config/config';
 import 'firebase/database';
 
+import './css/style.css';
+
 class AppLogado extends Component {
     constructor() {
         super();
@@ -114,7 +116,7 @@ class AppLogado extends Component {
                 </div>
 
                 <div className="section" style={{paddingTop: '24px'}}>
-                            <span onClick={this.openSide}>&#9776;</span>
+                            <span onClick={this.openSide}><p class="iconMenu" style={{fontSize: '20px'}}>☰</p></span>
                             
                             <Route path="/" exact component={BemVindo} />
                             <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 

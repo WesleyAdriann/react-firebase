@@ -8,30 +8,31 @@ class Usuarios extends Component {
     render () {
         
         return (
-            <div>
-                
-                <table className="table if-fullwidth">
-                    <thead>
-                        <tr>
-                            <th>ID</th>
-                            <th>Nome</th>
-                            <th>Email</th>
-                        </tr>
-                    </thead>
-                    <tbody>
+            <div className="column">
+                    <div className="columns">
+                    <table className="table is-hoverable is-fullwidth">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Nome</th>
+                                <th>Email</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            
+                            {this.data.map(info => {
+                                return(
+                                    <tr>
+                                        <th>{info.userId}</th>
+                                        <td>{info.userName}</td>
+                                        <td>{info.userEmail}</td>
+                                    </tr> 
+                                );
+                            })}
                         
-                        {this.data.map(info => {
-                            return(
-                                <tr>
-                                    <th>{info.userId}</th>
-                                    <td>{info.userName}</td>
-                                    <td>{info.userEmail}</td>
-                                </tr> 
-                            );
-                        })}
-                       
-                    </tbody>
-                </table>
+                        </tbody>
+                    </table>
+                </div>
             </div>
             );
     }
