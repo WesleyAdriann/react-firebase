@@ -50,26 +50,21 @@ class AppLogado extends Component {
                 }
             }
             this.setState({data});
-        })
-
-        
-
+        }) 
     }
 
 
     addUser (name, email) {
-        
         this.db.push().set({
             userName: name,
             userEmail: email
         }, function(error) {
             if (error) {
-                console.log(error);
+                alert("Não foi possivel adicionar o usuário.")
             } else {
-              console.log(200);
+                alert("Usuário adicionado.")
             }
-          });
-        
+          });   
     }
 
     removeUser(id) {

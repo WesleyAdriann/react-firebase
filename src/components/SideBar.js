@@ -20,22 +20,22 @@ class SideBar extends Component {
                         
                             <p className="menu-label">Geral</p>
                             <ul className="menu-list">
-                                <li>
+                                <li onClick={this.props.closeSide}>
                                     <Link to="/usuarios">
-                                        <span onClick={this.props.closeSide}>Usuarios</span>
+                                        Usuarios
                                     </Link>
                                 </li>
                             </ul>
                             <p className="menu-label">Administrador</p>
                             <ul className="menu-list">
-                                <li>
+                                <li onClick={this.props.closeSide}>
                                     <Link to="/inserir">
-                                        <span onClick={this.props.closeSide}>Inserir</span>
+                                        Inserir
                                     </Link>
                                 </li>
-                                <li>
+                                <li onClick={this.props.closeSide}>
                                     <Link to="/excluir">
-                                        <span onClick={this.props.closeSide}>Excluir</span>
+                                        Excluir
                                     </Link>
                                 </li>
                                 <br/>        
