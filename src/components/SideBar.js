@@ -38,6 +38,11 @@ class SideBar extends Component {
                                         Excluir
                                     </Link>
                                 </li>
+                                <li onClick={this.props.closeSide}>
+                                    <Link to="/editar">
+                                        Editar
+                                    </Link>
+                                </li>
                                 <br/>        
                             </ul>
                             {/* <ul className="menu-list"><li><Link to="/login">Logout</Link></li></ul> */}

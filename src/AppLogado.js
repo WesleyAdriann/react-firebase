@@ -6,6 +6,7 @@ import SideBar from './components/SideBar';
 import Usuarios from './components/Usuarios';
 import Inserir from './components/Inserir';
 import Excluir from './components/Excluir';
+import Editar from './components/Editar';
 import { BemVindo } from './components/BemVindo';
 
 import firebase from 'firebase';
@@ -122,7 +123,7 @@ class AppLogado extends Component {
                             <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
                             <Route path="/inserir" component={() => <Inserir addUser={this.addUser}/>}/>  
                             <Route path="/excluir" component={() => <Excluir data={this.state.data} removeUser={this.removeUser}/>}/>
-
+                            <Route path="/editar" component={() => <Editar/>}/>
                             
                 </div>
 
