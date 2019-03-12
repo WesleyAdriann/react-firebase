@@ -65,6 +65,10 @@ class Inserir extends Component {
                         <label className="label">Nome</label>
                         <div className="control has-icons-left">
 
+                            <span className="icon is-left">
+                                <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)', zIndex: 0}}/>
+                            </span>
+
                             <input
                                 id="name"
                                 className="input" 
@@ -73,14 +77,17 @@ class Inserir extends Component {
                                 onChange={event => this.handleName(event.target.value)}
                             />
 
-                            <span className="icon is-left">
-                                <img src={user} className="image is-24x24" style={{filter: 'opacity(25%)', zIndex: 0}}/>
-                            </span>
+                            
                         </div>
                     </div>
                     <div className="field">
                         <label className="label">Email</label>
                         <div className="control has-icons-left">
+
+                            <span className="icon is-left">
+                                <img src={mail} className="image is-24x24" style={{filter: 'opacity(25%)', position:'absolute', zIndex: 1}}/>
+                                
+                            </span>
 
                             <input
                                 id="email"
@@ -90,10 +97,6 @@ class Inserir extends Component {
                                 onChange={event => this.handleEmail(event.target.value)}                       
                             />
 
-                            <span className="icon is-left">
-                                <img src={mail} className="image is-24x24" style={{filter: 'opacity(25%)', position:'absolute', zIndex: 1}}/>
-                                
-                            </span>
                         </div>
                     </div>
 

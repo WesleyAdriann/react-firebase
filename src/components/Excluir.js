@@ -24,7 +24,7 @@ class Excluir extends Component {
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>Email</th>
-                                <th></th>
+                                <th/>
                             </tr>
                         </thead>
                         <tbody>
@@ -35,7 +35,7 @@ class Excluir extends Component {
                                         <th>{info.userId}</th>
                                         <td>{info.userName}</td>
                                         <td>{info.userEmail}</td>
-                                        <td style={{fontSize: '17px', color: 'red'}} key={info.userId}><span onClick={() => this.handleRemove(info.userId)}>×</span></td>
+                                        <td style={{fontSize: '17px', color: 'red'}} key={info.userId} alt="Excluir"><span onClick={() => this.handleRemove(info.userId)}>×</span></td>
                                     </tr> 
                                 );
                             })}

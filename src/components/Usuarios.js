@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import edit from '../icons/paper-checklist-with-pen.svg';
 
 class Usuarios extends Component {
     constructor(props) {
@@ -16,6 +17,7 @@ class Usuarios extends Component {
                                 <th>ID</th>
                                 <th>Nome</th>
                                 <th>Email</th>
+                                <th/>
                             </tr>
                         </thead>
                         <tbody>
@@ -26,6 +28,7 @@ class Usuarios extends Component {
                                         <th>{info.userId}</th>
                                         <td>{info.userName}</td>
                                         <td>{info.userEmail}</td>
+                                        <td><img src={edit} className="image is-24x24" alt="Editar"/></td>
                                     </tr> 
                                 );
                             })}
