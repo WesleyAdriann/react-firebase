@@ -1,6 +1,6 @@
 import React , { Component } from 'react';
 import {  Link, Switch } from 'react-router-dom';
-import '../css/style.css';
+// import '../css/style.css';
 
 
 class SideBar extends Component {

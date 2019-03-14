@@ -13,7 +13,7 @@ import firebase from 'firebase';
 import { DB_config } from './config/config';
 import 'firebase/database';
 
-import './css/style.css';
+// import './css/style.css';
 
 class AppLogado extends Component {
     constructor() {
@@ -112,7 +112,7 @@ class AppLogado extends Component {
                     
                 </section> */}
 
-                <div style={{display: 'none'}} id="sideBar">
+                {/* <div style={{display: 'none'}} id="sideBar">
                     <SideBar closeSide={this.closeSide}/>
                 </div>
 
@@ -125,7 +125,23 @@ class AppLogado extends Component {
                             <Route path="/excluir" component={() => <Excluir data={this.state.data} removeUser={this.removeUser}/>}/>
                             <Route path="/editar" component={() => <Editar/>}/>
                             
+                </div> */}
+
+
+                <div className='container'>
+                    <div className='row'>
+                        <div className='col'>
+                            <Route path="/" exact component={BemVindo} />
+                            <Route path="/usuarios" component={() => <Usuarios data={this.state.data}/>} /> 
+                            <Route path="/inserir" component={() => <Inserir addUser={this.addUser}/>}/>  
+                            <Route path="/excluir" component={() => <Excluir data={this.state.data} removeUser={this.removeUser}/>}/>
+                            <Route path="/editar" component={() => <Editar/>}/>
+                        </div>
+                    </div>
                 </div>
+
+                    
+                
 
             </div>
         );

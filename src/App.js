@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import 'bulma/css/bulma.css';
-import { BrowserRouter, Switch, Route, Redirect } from 'react-router-dom';
+// import 'bulma/css/bulma.css';
 import AppLogado from './AppLogado';
-import Login from './components/Login';
+
 
 
 
@@ -11,16 +10,10 @@ class App extends Component {
     super(props);
      
   }
-
-
-
- 
-  
-
   render() {
     return (
       <div>
-        <BrowserRouter >
+        
 {/* 
           <Switch>
             <Route exact path="/" render={ () => (
@@ -42,7 +35,7 @@ class App extends Component {
           {/* <Login/> */}
           <AppLogado/>
           
-        </BrowserRouter>
+        
           
       </div>
     );
